@@ -1,0 +1,16 @@
+{
+  "name": "wifi-plug-server",
+  "main": "wifi-plug-server.js",
+  "dependencies": {
+    "express": "~4.0.0",
+    "body-parser": "~1.0.1"
+  },
+  "version": "1.0.0",
+  "description": "wifi plug server",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bastian.schnorbus@gmail.com",
+  "license": "ISC"
+}
