@@ -1,5 +1,6 @@
 var util = require('util');
 var http = require('http');
+var net  = require('net');
 
 
 var express     = require('express');
@@ -7,6 +8,8 @@ var bodyparser = require('body-parser');
 var app = express();
 
 var plug = { name: "Plug1", address: "192.168.178.27", mac:"AC CF 23 38 AE F6" };
+var on  = '10 4C F7 5F 5A 28 A1 81 57 4A C1 B5 63 CD 51 A7 8D';
+var off = '10 F7 B4 E7 4B 97 0D 96 F3 CA 2B B5 D3 CD 1C 19 D0';
 
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
@@ -34,6 +37,21 @@ router.get('/', function(req, res) {
 // more routes for our API will happen here
 router.route('/plug')
   .get(function(req, res) {
+    var socket=new net.Socket();
+    console.log("Connecting to "+plug.address);
+    socket.connect(8530, plug.address, function() {
+      console.log("Connected");
+      socket.write("01 40" + plug.mac + on);
+    });
+    socket.on('data', function(data) {
+	     console.log('Received: ' + data);
+	      socket.destroy(); // kill socket after server's response
+    });
+
+    socket.on('close', function() {
+	     console.log('Connection closed');
+    });
+
     res.json({message: plug}
   );
 });
