@@ -1,15 +1,14 @@
 var util = require('util');
 var http = require('http');
 var net  = require('net');
+var plugutil = require('./plugutil');
 
+var plug1 = { name: "Wifi-Plug-1", address: "192.168.178.27", mac:"AC CF 23 38 AE F6" };
+var testplug = { name: "Test-Plug1", address: "127.0.0.1", mac:"AC CF 23 38 AE F6" };
 
 var express     = require('express');
 var bodyparser = require('body-parser');
 var app = express();
-
-var plug = { name: "Plug1", address: "192.168.178.27", mac:"AC CF 23 38 AE F6" };
-var on  = '10 4C F7 5F 5A 28 A1 81 57 4A C1 B5 63 CD 51 A7 8D';
-var off = '10 F7 B4 E7 4B 97 0D 96 F3 CA 2B B5 D3 CD 1C 19 D0';
 
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
@@ -61,10 +60,10 @@ router.route('/plug/:action')
   .get(function(req, res){
     switch (req.params.action) {
       case 'on':
-        res.send("on her!")
+        plugutil.sendPlugCmd(testplug, true);
         break;
       case 'off':
-        res.send("off her!")
+        plugutil.sendPlugCmd(testplug, false);
         break;
       default:
 
