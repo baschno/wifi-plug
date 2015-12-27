@@ -12,17 +12,30 @@ function cmdString(plug, stateOn) {
   return parts.join(' ').replace(/ /g,'');
 }
 
-module.exports = {
-  sendPlugCmd:function (plug, stateOn) {
+var exports = module.exports = {};
+
+exports.sendPlugCmd=function (plug, stateOn) {
     var message = new Buffer(cmdString(plug, stateOn), "hex");
     var client = dgram.createSocket('udp4');
     console.log("Sending: " + stateOn + " to " + plug.name);
     client.send(message, 0, message.length, 8530, plug.address, function(err, bytes) {
-      if (err) throw err;
-      console.log('UDP message sent to ' + plug.address +':8530');
+      if (err)
+        throw err;
+      console.log('UDP message ('+message+') sent to ' + plug.address +':8530');
       client.close();
     });
-  }
+};
+
+exports.sendPlugRawCmd=function (ip, rawContent) {
+    var message = new Buffer(rawContent, "hex");
+    var client = dgram.createSocket('udp4');
+    console.log("Sednging: "+rawContent);
+    client.send(message, 0, message.length, 8530, ip, function(err, bytes) {
+      if (err)
+        throw err;
+      console.log('UDP message ('+message+') sent to ' + ip +':8530');
+      client.close();
+    });
 };
 //{
 //  sendPlugCmd(testplug, true);

@@ -60,10 +60,10 @@ router.route('/plug/:action')
   .get(function(req, res){
     switch (req.params.action) {
       case 'on':
-        plugutil.sendPlugCmd(testplug, true);
+        plugutil.sendPlugCmd(plug1, true);
         break;
       case 'off':
-        plugutil.sendPlugCmd(testplug, false);
+        plugutil.sendPlugCmd(plug1, false);
         break;
       default:
 
