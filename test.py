@@ -17,7 +17,7 @@ for line in lines:
     print(line)
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
     s.connect((ip, 8530)) # (IP, Port) is a single variable passed to connect function
-    bytes = str.encode(line)
+    bytes = bytearray.fromhex(line)
     s.send(bytes) # to switch 'on'
     s.send(bytes) # to switch 'on'
     time.sleep(5)
