@@ -1,0 +1,32 @@
+{
+  "list": [
+    {
+      "macAddress": "ACCF2338AEF6",
+      "addressCode": "11441A",
+      "type": 1,
+      "deviceName": "s1",
+      "imageName": "",
+      "lastOperation": 1480764945791,
+      "orderNumber": 0
+    },
+    {
+      "macAddress": "ACCF2338AEF6",
+      "addressCode": "C6625C",
+      "type": 1,
+      "deviceName": "s3",
+      "imageName": "",
+      "lastOperation": 1481143440487,
+      "orderNumber": 0
+    },
+    {
+      "macAddress": "ACCF2338AEF6",
+      "addressCode": "1C3966",
+      "type": 1,
+      "deviceName": "s2",
+      "imageName": "",
+      "lastOperation": 1481143389123,
+      "orderNumber": 0
+    }
+  ],
+  "success": true
+}
