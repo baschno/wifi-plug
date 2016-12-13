@@ -95,7 +95,6 @@ if (isset($_GET['action'])) {
 		}
 
 		$msg = hex2bin("0140{$mac}10");
-
 		if (isset($rfslave)) {
 			$value = ($state == 1) ? '60' : '70';
 			$msg .= encodePacket(hex2bin("00ffff{$code}08{$rfslave}{$value}04040404"));
@@ -104,6 +103,7 @@ if (isset($_GET['action'])) {
 			$msg .= encodePacket(hex2bin("00ffff{$code}010000{$value}ff04040404"));
 		}
 
+		error_log($msg);
 		$sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 		socket_set_option($sock, SOL_SOCKET, SO_BROADCAST, 1);
 		for ($i = 0; $i < 4; $i++) {

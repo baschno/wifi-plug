@@ -41,7 +41,7 @@ if (isset($f->success) && $f->success == 1) {
 	}
 }
 
-$f = getJSON('/api/scene/wifi/list');
+$f = getJSON('/api/device/wifi/list');
 if (isset($f->success) && $f->success == 1) {
 	uasort($f->list, 'cmpOrderNumber');
 	foreach ($f->list as $plug) {
@@ -52,7 +52,7 @@ if (isset($f->success) && $f->success == 1) {
 	}
 }
 
-$f = getJSON('/api/scene/rf/list');
+$f = getJSON('/api/device/rf/list');
 if (isset($f->success) && $f->success == 1) {
 	uasort($f->list, 'cmpOrderNumber');
 	foreach ($f->list as $plug) {

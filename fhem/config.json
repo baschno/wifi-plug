@@ -1,32 +1,21 @@
 {
-  "list": [
-    {
-      "macAddress": "ACCF2338AEF6",
-      "addressCode": "11441A",
-      "type": 1,
-      "deviceName": "s1",
-      "imageName": "",
-      "lastOperation": 1480764945791,
-      "orderNumber": 0
+    "Bodenlampe Flur": {
+        "mac": "ACCF2338AEF6",
+        "code": "C1117150"
     },
-    {
-      "macAddress": "ACCF2338AEF6",
-      "addressCode": "C6625C",
-      "type": 1,
-      "deviceName": "s3",
-      "imageName": "",
-      "lastOperation": 1481143440487,
-      "orderNumber": 0
+    "s3": {
+        "mac": "ACCF2338AEF6",
+        "code": "C1117150",
+        "rfslave": "C6625C"
     },
-    {
-      "macAddress": "ACCF2338AEF6",
-      "addressCode": "1C3966",
-      "type": 1,
-      "deviceName": "s2",
-      "imageName": "",
-      "lastOperation": 1481143389123,
-      "orderNumber": 0
+    "s2": {
+        "mac": "ACCF2338AEF6",
+        "code": "C1117150",
+        "rfslave": "1C3966"
+    },
+    "s1": {
+        "mac": "ACCF2338AEF6",
+        "code": "C1117150",
+        "rfslave": "11441A"
     }
-  ],
-  "success": true
 }
