@@ -2,8 +2,10 @@
   "name": "wifi-plug-server",
   "main": "wifi-plug-server.js",
   "dependencies": {
+    "body-parser": "~1.0.1",
     "express": "~4.0.0",
-    "body-parser": "~1.0.1"
+    "locutus": "^2.0.6",
+    "mcrypt": "^0.1.12"
   },
   "version": "1.0.0",
   "description": "wifi plug server",

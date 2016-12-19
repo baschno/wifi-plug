@@ -1,12 +1,4 @@
 <?php
-/* Web frontend for querying registered WiFi plugs and sending switching commands
- * (c) 2016 SebiM. Contact via forum on forum.fhem.de
- *
- * Testet on PHP 5.6, needs Bootstrap in the same directory (tested with 3.3.7)
- *
- * Version: 2016-12-03 15:21h
-
- */
 
 $BroadcastIP = '255.255.255.255';
 
