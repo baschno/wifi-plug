@@ -1,4 +1,4 @@
-require('locutus/php/strings/hex2bin');
+
 
 var state = 1;
 var mac = "ACCF2338AEF6";
@@ -15,5 +15,6 @@ if (on === true) {
     value = "70";
 }
 var before_encode = "00ffff" + code + "08" + rfslave + value + "04040404";
-hex2bin('00');
+var strings=require('locutus/php/strings');
+strings.hex2bin('00');
 console.log(start + before_encode);
