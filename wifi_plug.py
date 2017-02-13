@@ -3,8 +3,7 @@ import subprocess
 import sys
 import jsonify
 from subprocess import call
-from flask import abort
-from flask import Flask
+from flask import abort, Flask
 
 app = Flask(__name__)
 
@@ -39,7 +38,7 @@ def switch(switch_key, state):
             print ("Rfslave " + rfslave)
             call_array.append(rfslave)
 
-        print (call_array)
+        #print (call_array)
         subprocess.run(call_array)
 
 @app.route('/')
@@ -49,7 +48,7 @@ def index():
 
 @app.route('/switch/config')
 def config():
-    return json_data
+    return jsonify(json_data)
 
 @app.route('/switch/activate/<string:switch_name>', methods=['GET'])
 def activate_switch(switch_name):
@@ -68,4 +67,4 @@ if __name__ == '__main__':
     if not json_data:
         sys.exit()
 
-    app.run()
+    app.run(host= '0.0.0.0')
