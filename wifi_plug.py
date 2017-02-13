@@ -3,15 +3,23 @@ import subprocess
 import sys
 import jsonify
 from subprocess import call
-
+from flask import abort
 from flask import Flask
+
 app = Flask(__name__)
 
-def switch(switch_key, state):
-    if switch_key not in json_data.keys():
-        print("Key not found in config json")
+def get_switch(switch_key):
+    if switch_key in json_data.keys():
+        return json_data[switch_key]
     else:
-        switch_cfg = json_data[switch_key]
+        return None
+
+def switch(switch_key, state):
+    switch_cfg = get_switch(switch_key)
+
+    if switch_cfg is None:
+        abort(404)
+    else:
         mac = switch_cfg['mac']
         code = switch_cfg['code']
         rfslave = None
@@ -38,6 +46,10 @@ def switch(switch_key, state):
 @app.route('/switch')
 def index():
     return "Medion/Lidl Wifi Switch Control"
+
+@app.route('/switch/config')
+def config():
+    return json_data
 
 @app.route('/switch/activate/<string:switch_name>', methods=['GET'])
 def activate_switch(switch_name):
