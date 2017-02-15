@@ -27,7 +27,8 @@ $BroadcastIP = '255.255.255.255';
 $mac = $argv[1];
 $code =$argv[2];
 $state = $argv[3];
-$rfslave = $argv[4];
+if ($argc == 5)
+	$rfslave = $argv[4];
 
 $msg = hex2bin("0140{$mac}10");
 if (isset($rfslave)) {
