@@ -39,7 +39,7 @@ def switch(switch_key, state):
             call_array.append(rfslave)
 
         #print (call_array)
-        subprocess.run(call_array)
+        subprocess.call(call_array)
 
 @app.route('/')
 @app.route('/switch')
