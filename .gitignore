@@ -1,3 +1,5 @@
 node_modules/
 flask/
 config.json
+wifi_plug.log
+

@@ -1,0 +1,13 @@
+[Unit]
+Description=Wifi-Plug REST API
+After=network.target
+
+[Service]
+PIDFile=/tmp/wifi-plug.pid
+Type=simple
+WorkingDirectory=/home/pi/git/wifi-plug
+ExecStart=/home/pi/git/wifi-plug/flask/bin/python wifi_plug.py 2>&1 > /tmp/wifi-plug.log"
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
