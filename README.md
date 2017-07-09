@@ -15,7 +15,7 @@ Put it into a `config.json` file.
 sudo apt install virtualenv
 python3 -m venv flaskenv
 source ./flaskenv/bin/activate
-pip install flask jsonify
+pip install -r requirements.txt
 
 ````
 
