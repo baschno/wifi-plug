@@ -6,9 +6,9 @@ Sold in germany by Lidl, Medion, ...
 ## Installation
 
 ### Prerequisite
-Install php (until php part is not rewritten to python)
+Install php (until php part is not rewritten to python/mcrypt)
 ```
-sudo apt-get install php5
+sudo apt-get install php5 php5-mcrypt
 ```
 ### Fetch Plug configuration
 
