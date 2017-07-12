@@ -5,6 +5,11 @@ Sold in germany by Lidl, Medion, ...
 
 ## Installation
 
+### Prerequisite
+Install php (until php part is not rewritten to python)
+```
+sudo apt-get install php5
+```
 ### Fetch Plug configuration
 
 Use `fhem/wifiplug-cloudfetch.php` script which will connect to the cloud service and read the configuration.
@@ -13,8 +18,8 @@ Put it into a `config.json` file.
 ### Virtualenv for Python/flask:
 ````
 sudo apt install virtualenv
-python3 -m venv flaskenv
-source ./flaskenv/bin/activate
+virtualenv run
+source ./run/bin/activate
 pip install -r requirements.txt
 
 ````
