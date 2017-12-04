@@ -23,6 +23,13 @@ function encodePacket($packet) {
     return $result;
 }
 
+echo bin2hex('abcd1234');
+echo "\n";
+echo hex2bin('01AFFE');
+echo "\n";
+echo bin2hex(encodePacket('abcd1234'));
+exit;
+
 $BroadcastIP = '255.255.255.255';
 $mac = $argv[1];
 $code =$argv[2];
