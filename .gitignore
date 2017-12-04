@@ -4,3 +4,5 @@ flask/
 wifi_plug.log
 .cache/
 .idea/
+__pycache__/
+cloudfetch.pyc
