@@ -1,5 +1,5 @@
 node_modules/
-flask/
+venv/
 *.json
 wifi_plug.log
 .cache/
