@@ -6,9 +6,7 @@ Connects to the Cloud Service and returns the configuration as Json file.
 import json
 import urllib2
 import hashlib
-import sys
 import argparse
-
 
 accessKey = "Q763W08JZ07V23FR99410B3PC945LT28"
 
