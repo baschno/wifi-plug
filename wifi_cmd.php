@@ -30,7 +30,9 @@ $state = $argv[3];
 if ($argc == 5)
 	$rfslave = $argv[4];
 
+echo("Mac: " . $mac . "\n");
 $msg = hex2bin("0140{$mac}10");
+echo("hex2bin: " . $msg . "\n");
 if (isset($rfslave)) {
 	$value = ($state == 1) ? '60' : '70';
 	$msg .= encodePacket(hex2bin("00ffff{$code}08{$rfslave}{$value}04040404"));
