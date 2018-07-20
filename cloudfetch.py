@@ -4,7 +4,8 @@ Connects to the Cloud Service and returns the configuration as Json file.
 """
 
 import json
-import urllib2
+from urllib.request import urlopen
+from urllib.parse import quote
 import hashlib
 import argparse
 
@@ -17,7 +18,7 @@ result = {}
 
 def build_url(username, password, path):
     urlpref = "http://smart2connect.yunext.com"
-    usr = urllib2.quote(username)
+    usr = quote(username)
     pwd = hashlib.md5(password).hexdigest().upper()
     url = '{}{}?accessKey={}&username={}&password={}'.format(urlpref, path, accessKey, usr, pwd)
 
@@ -26,7 +27,7 @@ def build_url(username, password, path):
 
 def getConfigJson(username, password, path):
     url = build_url(username, password, path)
-    response = urllib2.urlopen(url)
+    response = urlopen(url)
     return json.load(response)
 
 
@@ -94,7 +95,7 @@ if __name__ == "__main__":
         plug_cfg = create_plug_cfg(item, companyCode)
         result[get_device_name_from_item(item)] = plug_cfg
 
-    print json.dumps(result)
+    print(json.dumps(result))
 
     if args.filename is None:
         print("No file output")
