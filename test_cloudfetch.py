@@ -1,7 +1,11 @@
 import pytest
 import json
 import cloudfetch
+import binascii
 
+def test_hexlify():
+    hexstr = "abcdef0123456"
+    print(binascii.unhexlify(hexstr))
 
 def test_item_content():
     test_dict = '{"deviceName": "Lampe", "macAddress": "AFFE", "orderNumber": 1, "authCode": "7150", "deviceType": "11", "addressCode": "1ADD",  "companyCode": "C1"}'
@@ -17,7 +21,7 @@ def test_te():
     test_dict = '{"list":[{"deviceName": "Lampe", "macAddress": "AFFE", "orderNumber": 1, "authCode": "7150", "deviceType": "11", "companyCode": "C1"}]}'
     test_data = json.loads(test_dict)
     for item in test_data['list']:
-        print item
+        print(item)
         assert "Lampe" == cloudfetch.get_device_name_from_item(item)
         assert "AFFE" == cloudfetch.get_mac_address_from_item(item)
 
